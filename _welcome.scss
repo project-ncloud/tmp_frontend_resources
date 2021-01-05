@@ -1,0 +1,209 @@
+@keyframes containerAnima{
+    0%{
+        transform: translateY(0);
+    }
+
+    100%{
+        transform: translateY(-5vh);
+        position: relative;
+    }
+}
+
+@keyframes nextAnima{
+    0%{
+        opacity: 0;
+        background: transparent;
+    }
+
+    100%{
+        opacity: 100;
+        background: var(--list-bg);
+    }
+}
+
+
+@keyframes textAnima{
+    0%{
+        opacity: 0;
+        transform: translateX(0px);
+    }
+
+
+    50%{
+        opacity: 0;
+        transform: translateX(0px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(50px);
+    }
+}
+
+@keyframes logoAnima{
+    0%{
+        transform: scale(1);
+    }
+
+    40%{
+        transform: scale(1.2);
+    }
+
+    70%{
+        transform: scale(1);
+    }
+
+    100%{
+
+        transform: scale(1) translateX(-120px);
+    }
+}
+
+
+body{
+    width: 100vw;
+    height: 100vh;
+    padding: 0px;
+    margin: 0px;
+}
+
+.container{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    position: unset;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .mainLogo{
+        position: relative;
+        display: block;
+        width: 300px;
+        //background: lightblue;
+        .icon{
+            position: absolute;
+            display: grid;
+            place-content: center;
+            //opacity: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(1);
+            transform-origin: center;
+            margin: 0;
+            padding: 0;
+            animation: logoAnima 4000ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 1 forwards;
+        }
+        p{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-content: center;
+            padding: 0;
+            margin: 0;
+            opacity: 0;
+            animation: textAnima 2000ms 2000ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 1 forwards;
+        }
+
+        &:hover{
+            .icon{
+                filter: unset;
+            }
+            p{
+                transform: unset;
+            }
+        }
+    }
+
+    .mainLogo{
+        animation: containerAnima 1000ms 3400ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 1 forwards;
+    }
+
+
+    .formContainer{
+        background: var(--subBackgroundColor);
+        max-width: 500px;
+        width: auto;
+        height: auto;
+        border-radius: 5px;
+
+        button{
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            margin: 0;
+            background: var(--list-bg);
+            color: var(--sub-text-color);
+            box-shadow: none;
+            cursor: pointer;
+        }
+
+
+        .topSection{
+            width: 100%;
+            min-height: 40px;
+            max-height: 60px;
+            background: transparent;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            display: flex;
+            flex-direction: row;
+
+            a{
+                color: unset;
+            }
+
+            button{
+                
+                &:first-child{
+                    border-top-left-radius: 5px;
+                }
+                &:last-child{
+                    border-top-right-radius: 5px;
+                }
+                &:hover{
+                    transform: none;
+                    filter: brightness(1.1);
+                }
+            }
+
+
+            .active{
+                color: var(--purple);
+                background: var(--subBackgroundColor);
+                cursor: default;
+                &:hover{
+                    transform: none;
+                    filter: unset;
+                }
+            }
+        }
+
+        form{
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .welBtn{
+            opacity: 0;
+            border-radius: 5px;
+            color: var(--purple);
+            animation: nextAnima 1000ms 4000ms cubic-bezier(0.46, 0.03, 0.52, 0.96) 1 forwards;
+        }
+
+        .welBtn a{
+            color: var(--purple);
+        }
+    }
+    .abc{
+        background: transparent;
+    }
+}

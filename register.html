@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - N Cloud</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="welcome.css">
+    <script src="main.js" defer></script>
+</head>
+<body class="welcomeBody">
+    <div class="container">
+        <div class="formContainer">
+            <div class="topSection">
+                <button><a href="login.html">Login</a></button>
+                <button class="active"><a href="register.html">Register</a></button>
+                <button><a href="admin.html">Admin</a></button>
+            </div>
+            <form action="http://127.0.0.1:5000/register/" method="POST">
+                <input type="text" name="name" placeholder="Name">
+                <input type="text" name="username" placeholder="UserName">
+                <input type="password" name="" id="" placeholder="password">
+                <div>
+                    <input type="radio" name="userType" id="isStudent" value="STUDENT" checked>
+                    <label for="isStudent">Student</label>
+                    <input type="radio" name="userType" id="isFaculty" value="FACULTY">
+                    <label for="isFaculty">Faculty</label>
+                </div>
+
+                <input type="password" name="KEY" id="" placeholder="code">
+                
+                <div>
+                    <input type="reset" value="Reset">
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="mainLogo">
+            <i class="ri-hard-drive-fill icon"></i>
+            <p>N Cloud</p>
+        </div>
+        <div class="bigSpacer"></div>
+        <div class="sectionHead">
+            <p class="title">Servers</p>
+            <div class="subActions">
+                <i class="ri-add-line" onclick="openOverlay('addPiServerPanel')"></i>
+            </div>
+        </div>
+        <div class="spacer"></div>
+
+        <div class="list">
+            <div class="listElement">
+                <div class="title">Pi4_magiPi</div>
+                <div class="bar">
+                    <input type="checkbox" id="fok" class="checkbox" checked="false" /> 
+                    <label for="fok" class="toggle"> 
+                        <i class="ri-shut-down-line btnON"></i>
+                    </label> 
+                </div>
+            </div>
+            <div class="listElement">
+                <div class="title">Botai Pi Server JamaiBaBu</div>
+                <div class="bar">
+                    <input type="checkbox" id="fokit" class="checkbox" checked="false" /> 
+                    <label for="fokit" class="toggle"> 
+                        <i class="ri-shut-down-line btnON"></i>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottomContainer">
+            <i class="ri-settings-fill settings icon"></i>
+            <i class="ri-information-fill info icon"></i>
+            <i class="ri-code-box-fill settings icon" onclick="nConsolePanel()"></i>
+        </div>
+
+
+    </div>
+    <div class="nasconsole Nright" id="nConsolePanel">
+        <div class="sectionTitle purple">Console</div>
+        <button class="clrBtn subBg red" onclick="clearNConsole()">Clear</button>
+        <div class="debugContainer" id="debugContainer">
+            <div>Pi Server Connected <span class="cyanBg">Success</span></div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container">
+        <section class="dashboard hide" id="dashboard">
+            <div class="sectionTitle purple">Dashboard</div>
+            <div class="grid">
+                <div class="box" onclick="openOverlay('confirmPower')">
+                    <i id="powerON" class="ri-shut-down-line cyan"></i>
+                    <i id="powerOFF" class="ri-shut-down-line red hide"></i>
+                </div>
+                <div class="box bigbox" onclick="openUserList('userSettingList')">
+                    <i class="ri-user-settings-fill yellow"></i>
+                    <p class="yellow">User Settings</p>
+                </div>
+                <div class="box bigbox" onclick="openUserPendingList('userPendingListPanel')">
+                    <i class="ri-user-add-fill red"></i>
+                    <p class="red">Pending Requests</p>
+                    <p class="count">69</p>
+                </div>
+            </div>
+        </section>
+        <section class="server" id="serverName">
+            <div class="sectionTitle purple">Server Info</div>
+            <div class="info">
+                <div><i class="ri-server-fill"></i>PiMagi</div>
+                <div><i class="ri-link"></i>192.168.0.1</div>
+            </div>
+            <div class="sectionTitle purple subtitle">Hosts</div>
+            <div class="hostgrid">
+                <div class="info hostinfo">
+                    <div style="padding: 0;height: 5px;"></div>
+                    <div><i class="ri-hard-drive-fill"></i>Botai Pi 1</div>
+                    <div><i class="ri-folder-info-line"></i>/pi/desktop/</div>
+                    <div class="hostOptions">
+                        <i class="ri-settings-3-fill"></i>
+                        <i class="ri-user-add-fill"></i>
+                        <i class="ri-user-settings-fill"></i>
+                    </div>
+                    <div style="padding: 0;height: 5px;"></div>
+                </div>
+                <div class="info hostinfo hostAdd">
+                    <i class="ri-add-fill purple"></i>
+                </div>
+            </div>
+            
+        </section>
+    </div>
+
+    <div class="hide overlayContainer" id='confirmPower'>
+        <div class="ocontainer oConfimContainer">
+            <div class="topBar">
+                <i class="ri-close-fill" onclick="closeOverlay('confirmPower')"></i>
+            </div>
+            <div class="confirmHead purple">Are you sure?</div>
+            <div class="confirmInfo">
+                Yes karne se tumahara gand fhat sakti hai. Samal ke yes dabae.
+            </div>
+            <div class="topBar bottomBar">
+                <button class="barBtn subBg purple" onclick="closeOverlay('confirmPower')">Cancel</button>
+                <button class="barBtn" onclick="togglePowerBtn('confirmPower')">Yes</button>
+            </div>
+        </div>
+    </div>
+    <!--div class="overlayContainer" id='testOverlay'>
+        <div class="ocontainer">
+            <div class="topBar">
+                <i class="ri-close-fill" onclick="closeOverlay('testOverlay')"></i>
+            </div>
+        </div>
+    </div>
+    <div class="overlayContainer" id='testOverlay'>
+        <div class="ocontainer oConfimContainer">
+            <div class="topBar">
+                <i class="ri-close-fill" onclick="closeOverlay('testOverlay')"></i>
+            </div>
+            <div class="confirmHead purple">Are you sure?</div>
+            <div class="confirmInfo">
+                Yes karne se tumahara gand fhat sakti hai. Samal ke yes dabae.
+            </div>
+            <div class="topBar bottomBar">
+                <button class="barBtn subBg purple">Cancel</button>
+                <button class="barBtn">Yes</button>
+            </div>
+        </div>
+    </div-->
+
+    <div class="overlayContainer hide" id='userSettingList'>
+        <div class="ocontainer">
+            <div class="topBar">
+                <i class="ri-close-fill" onclick="closeOverlay('userSettingList')"></i>
+            </div>
+            <div class="actionBar">
+                <div class="confirmHead purple">Users</div>
+                <input type="search" name="" id="userListSearch" oninput="search('userListSearch')" placeholder="Search user">
+            </div>
+            <div class="list listHead">
+                <div class="row">
+                    <div class="col" onclick="sortList()">Name</div>
+                    <div class="col">Type</div>
+                    <div class="col">Status</div>
+                    <div class="col colAction">Action</div>
+                </div>
+            </div>
+            <div class="list" id="userList">
+                <div class="row">
+                    <div class="col"><i class="ri-user-5-fill"></i>Sourav Gain</div>
+                    <div class="col">Student</div>
+                    <div class="col">Enabled</div>
+                    <div class="col colAction">
+                        <i class="ri-close-circle-fill"></i>
+                        <input type="checkbox" id="enableUserX" class="checkbox" checked="false" /> 
+                        <label for="enableUserX" class="toggle"> 
+                            <i class="ri-shut-down-line btnON"></i>
+                        </label> 
+                    </div>
+                </div>
+            </div>
+            <div class="loading hide" id="userListLoading">
+                <div class="loadingBG">
+                    <div class="bar"></div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+
+    <div class="overlayContainer hide" id='userPendingListPanel'>
+        <div class="ocontainer">
+            <div class="topBar">
+                <i class="ri-close-fill" onclick="closeOverlay('userPendingListPanel')"></i>
+            </div>
+            <div class="actionBar">
+                <div class="confirmHead purple">Pending Users</div>
+                <input type="search" name="" id="userPendingListSearch" oninput="searchPending('userPendingListSearch')" placeholder="Search user">
+            </div>
+            <div class="list listHead">
+                <div class="row pendingUserRow">
+                    <div class="col" onclick="sortPendingList()">Name</div>
+                    <div class="col">Type</div>
+                    <div class="col colAction">Action</div>
+                </div>
+            </div>
+            <div class="list" id="userPendingList">
+                <div class="row pendingUserRow">
+                    <div class="col"><i class="ri-user-5-fill"></i>Sourav Gain</div>
+                    <div class="col">Student</div>
+                    <div class="col colAction">
+                        <i class="ri-user-unfollow-fill"></i>
+                        <i class="ri-user-follow-fill"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="loading hide" id="userPendingListLoading">
+                <div class="loadingBG">
+                    <div class="bar"></div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="overlayContainer hide" id='addPiServerPanel'>
+        <div class="ocontainer oAddServerContainer">
+            <div class="topBar">
+                <i class="ri-close-fill" onclick="closeOverlay('addPiServerPanel')"></i>
+            </div>
+            <div class="actionBar">
+                <div class="confirmHead purple">Add Server</div>
+            </div>
+            <div class="list addServer" id="userPendingList">
+                <div class="row addServerRow"></div>
+
+                <div class="row addServerRow"><label for="addServerName">Server Name</label></div>
+                <div class="row addServerRow">
+                    <input type="text" name="addServerName" id="addServerName">
+                </div>
+
+                <div class="row addServerRow"></div>
+
+                <div class="row addServerRow"><label for="addServerAddress">Address</label></div>
+                <div class="row addServerRow">
+                    <input type="text" name="addServerAddress" id="addServerAddress">
+                </div>
+
+                <div class="row addServerRow"></div>
+
+                <div class="row addServerRow">Configurations</div>
+                <div class="row addServerRow"><input type="checkbox" name="addAutoStart" id="addAutoStart" checked><label for="addAutoStart">Auto Start</label></div>
+
+                <div class="row addServerRow" id="addServerStatus"></div>
+                <div class="row addServerRow buttonRow">
+                    <button class="subBg purple" onclick="clearPanel_addServer()">Clear</button>
+                    <button onclick="addServer('addPiServerPanel')">Add Server</button>
+                </div>
+                <div class="row addServerRow"></div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
